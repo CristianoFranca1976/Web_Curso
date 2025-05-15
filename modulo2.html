@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Comeco</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Underdog&display=swap");
+    h1 {
+      color: white;
+      position: absolute;
+      top: 45%;
+      font-size: 5vh;
+      animation: myAnim 4s ease 0s 1 normal forwards;
+    }
+    p {
+      color: white;
+      font: 400;
+      font-size: 4vh;
+      font-family: "Underdog", system-ui;
+      font-weight: 400;
+    }
+    #btn {
+      position: absolute;
+      top: 48%;
+      background: #f01d2f;
+      background-image: -webkit-linear-gradient(top, #f01d2f, #f7690a);
+      background-image: -moz-linear-gradient(top, #f01d2f, #f7690a);
+      background-image: -ms-linear-gradient(top, #f01d2f, #f7690a);
+      background-image: -o-linear-gradient(top, #f01d2f, #f7690a);
+      background-image: linear-gradient(to bottom, #f01d2f, #f7690a);
+      -webkit-border-radius: 28;
+      -moz-border-radius: 28;
+      border-radius: 28px;
+      text-shadow: 7px 5px 23px #121212;
+      font-family: Courier New;
+      color: #ffffff;
+      font-size: 20px;
+      padding: 10px 20px 10px 20px;
+      text-decoration: none;
+      cursor: pointer;
+      display: none;
+    }
+    #btn:hover {
+      background: #de2462;
+      background-image: -webkit-linear-gradient(top, #de2462, #c2850a);
+      background-image: -moz-linear-gradient(top, #de2462, #c2850a);
+      background-image: -ms-linear-gradient(top, #de2462, #c2850a);
+      background-image: -o-linear-gradient(top, #de2462, #c2850a);
+      background-image: linear-gradient(to bottom, #de2462, #c2850a);
+      text-decoration: none;
+    }
+    header,
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    #patrulhamento {
+      animation: patru 4s ease 0s 1 normal forwards;
+      display: none;
+    }
+    #abordagem {
+      animation: abor 4s ease 0s 1 normal forwards;
+      display: none;
+    }
+    #acompanhamento {
+      animation: patru 4s ease 0s 1 normal forwards;
+      display: none;
+    }
+    #modulacao {
+      animation: abor 4s ease 0s 1 normal forwards;
+      display: none;
+    }
+    @keyframes myAnim {
+      0% {
+        animation-timing-function: ease-in;
+        opacity: 0;
+        transform: translateY(-250px);
+      }
+
+      38% {
+        animation-timing-function: ease-out;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      55% {
+        animation-timing-function: ease-in;
+        transform: translateY(-65px);
+      }
+
+      72% {
+        animation-timing-function: ease-out;
+        transform: translateY(0);
+      }
+
+      81% {
+        animation-timing-function: ease-in;
+        transform: translateY(-28px);
+      }
+
+      90% {
+        animation-timing-function: ease-out;
+        transform: translateY(0);
+      }
+
+      95% {
+        animation-timing-function: ease-in;
+        transform: translateY(-8px);
+      }
+
+      100% {
+        animation-timing-function: ease-out;
+        transform: translateY(0);
+      }
+    }
+    @keyframes patru {
+      0% {
+        opacity: 0;
+        transform: translateX(-250px) rotate(-200deg);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+      }
+    }
+    @keyframes abor {
+      0% {
+        opacity: 0;
+        transform: translateX(250px) rotate(200deg);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+      }
+    }
+  </style>
+  <body>
+    <div class="container" id="container">
+      <h1>O que você vai aprender?</h1>
+      <button type="button" id="btn" onclick="avancarPagina()">Patrulhamento</button>
+      <header>
+        <p id="patrulhamento">Patrulhamento</p>
+        <p id="abordagem">Abordagem</p>
+      </header>
+      <footer>
+        <p id="acompanhamento">Acompanhamento</p>
+        <p id="modulacao">Modulacao</p>
+      </footer>
+    </div>
+    <script>
+      const h1 = document.querySelector("h1");
+      const container = document.getElementById("container");
+      container.style.justifyContent = "space-between";
+      const patrulhamento = document.getElementById("patrulhamento");
+      const abordagem = document.getElementById("abordagem");
+      const acompanhamento = document.getElementById("acompanhamento");
+      const modulacao = document.getElementById("modulacao");
+      const btn = document.getElementById('btn');
+
+      setTimeout(() => {
+        h1.style.display = "none";
+      }, 6000);
+
+      setTimeout(() => {
+        patrulhamento.style.display = "flex";
+      }, 7000);
+
+      setTimeout(() => {
+        abordagem.style.display = "flex";
+      }, 10000);
+
+      setTimeout(() => {
+        acompanhamento.style.display = "flex";
+      }, 13000);
+
+      setTimeout(() => {
+        modulacao.style.display = "flex";
+      }, 16000);
+      setTimeout(() => {
+        btn.style.display = "flex";
+      }, 23000);
+
+       function avancarPagina() {
+      alert("Ir para o próximo módulo...");
+       window.location.href = 'cursos.html';
+    }
+    </script>
+  </body>
+</html>

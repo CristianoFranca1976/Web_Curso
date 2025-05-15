@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+body {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ 
+}
+
+.container {
+  width: 1400px;
+  min-height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+

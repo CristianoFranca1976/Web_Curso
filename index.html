@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>CRIS-Cursos</title>
+  </head>
+  <style>
+    h1 {
+      color: white;
+      font-size: 10vh;
+      animation: curso ease-in;
+      animation-duration: 10s;
+      animation-iteration-count: 1;
+      margin-top: 300px;
+    }
+    h2 {
+      color: white;
+      font-size: 5vh;
+      margin: 0;
+      position: relative;
+      animation: acadepol ease-in;
+      animation-duration: 10s;
+      animation-iteration-count: 1;
+    }
+    .botao-animado {
+      margin-top: auto;
+      margin-left: auto;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #1f6feb, #1c88ff);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s;
+      display: none;
+    }
+
+    .botao-animado::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.3),
+        transparent 60%
+      );
+      transform: rotate(25deg);
+      animation: brilho 2s linear infinite;
+      z-index: 0;
+    }
+
+    .botao-animado:hover {
+      transform: scale(1.05);
+    }
+
+    .botao-animado span {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes brilho {
+      0% {
+        transform: translate(-100%, -100%) rotate(25deg);
+      }
+      100% {
+        transform: translate(100%, 100%) rotate(25deg);
+      }
+    }
+    @keyframes curso {
+      from {
+        color: red;
+        font-size: 0vh;
+        margin-top: 0;
+      }
+      to {
+        color: yellow;
+        font-size: 10vh;
+        margin-top: 0;
+      }
+    }
+    @keyframes acadepol {
+      from {
+        color: red;
+        font-size: 0vh;
+      }
+      to {
+        color: yellow;
+        font-size: 5vh;
+      }
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>Curso Basico</h1>
+      <h2>ACADEPOL</h2>
+      <button type="button" class="botao-animado" onclick="avancarPagina()">
+        <span>Começar Treinamento</span>
+      </button>
+    </div>
+    <script>
+      const btnComecar = document.querySelector('.botao-animado')
+
+      setTimeout(() => {
+        btnComecar.style.display = "flex";
+      }, 10000);
+
+       function avancarPagina() {
+      alert("Ir para o próximo módulo...");
+       window.location.href = 'modulo2.html';
+    }
+    </script>
+  </body>
+</html>
