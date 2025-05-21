@@ -40,12 +40,11 @@
       height: 350px;
     }
     .btnNext {
-     background: yellow;
-     color: red;
+      background: yellow;
+      color: red;
     }
-    p{
+    p {
       text-align: justify;
-      
     }
   </style>
   <body>
@@ -81,27 +80,52 @@
         </div>
         <h3></h3>
         <div class="nav-buttons">
-          <button type="button" class="btnNext" onclick="mostrarModulo(2)" disabled>disabled</button>
+          <button
+            type="button"
+            class="btnNext"
+            onclick="mostrarModulo(2)"
+            disabled
+          >
+            disabled
+          </button>
         </div>
       </section>
       <section id="modulo2">
-        Section 02
+        <h1>
+          "E aqui que voce tera exemplos praticos das funcoes de cada Policial
+          dentro da viatura, no video abaixo ira ter algumas situcoes e como
+          deve agir diante delas, as quais voce tera que estar preparado pra ter
+          a melhor reacao e acao a tomar diante do ocorrido na sua frente."
+        </h1>
+        <video width="320" height="240" controls>
+          <source src="movie.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <div class="nav-buttons">
           <button type="button" onclick="mostrarModulo(1)">Previous</button>
-          <button type="button" class="btnNext" onclick="mostrarModulo(3)" disabled>Next</button>
+          <button
+            type="button"
+            class="btnNext"
+            onclick="mostrarModulo(3)"
+            disabled
+          >
+            Next
+          </button>
         </div>
       </section>
       <section id="modulo3">
         Section 03
         <div class="nav-buttons">
           <button type="button" onclick="mostrarModulo(2)">Previous</button>
-          <button type="button" onclick="mostrarModulo(4)" disabled>Next</button>
+          <button type="button" onclick="mostrarModulo(4)" disabled>
+            Next
+          </button>
         </div>
       </section>
       <section id="modulo4">
         Section 04
         <div class="nav-buttons">
-          <button type="button"  onclick="mostrarModulo(3)">Previous</button>
+          <button type="button" onclick="mostrarModulo(3)">Previous</button>
         </div>
       </section>
     </div>
@@ -116,7 +140,7 @@
       const card2 = document.getElementById("card2");
       const card3 = document.getElementById("card3");
       const card4 = document.getElementById("card4");
-      const h3 = document.querySelector('h3');
+      const h3 = document.querySelector("h3");
       const p1 = `
        <p>P1</p>
        <ul>
@@ -125,20 +149,21 @@
           <li>Ver se todos estao de cinto;</li>
           <li>Embarcar e desembar da viatura;</li>
           <li>O ultimo a sair da viatura;</li>
-          <li>Dirigir de vagar e correto;</li>
+          <li>Dirigir devagar e correto;</li>
         </ul>
       `;
-        const p2 = `
+      const p2 = `
         <p>P2</p>
         <ul>
           <li>Pedir permisao embarcar e desembarcar da viatura;</li>
+          <li>Responsavel pelo patrulhamento;</li>
           <li>Modular;</li>
           <li>Orientar o P1;</li>
           <li>Marcar as QRU;</li>
           <li>Decidir quem abordar;</li>
         </ul>
         `;
-        const p3 = `
+      const p3 = `
         <p>P3</p>
         <ul>
           <li>Pedir permisao embarcar e desembarcar da viatura;</li>
@@ -147,7 +172,7 @@
           <li>Imformar supeitos;</li>
         </ul>
         `;
-        const p4 = `
+      const p4 = `
         <p>P4</p>
         <ul>
           <li>Pedir permisao embarcar e desembarcar da viatura;</li>
@@ -156,14 +181,12 @@
           <li>Imformar supeitos;</li>
         </ul>
         `;
-        const h3Value = `
+      const h3Value = `
          Lembrando: A viatura sempre tem que ter uma vaga livre para possivel cidadao que for preso.
         `;
-        
-        const btnNext = document.querySelectorAll('.btnNext')
-      function btnCard(numero) {
-        
 
+      const btnNext = document.querySelectorAll(".btnNext");
+      function btnCard(numero) {
         if (numero === 1) {
           card1.innerHTML = p1;
         } else if (numero === 2) {
@@ -174,22 +197,43 @@
           card4.innerHTML = p4;
         }
 
-        if (card1.innerHTML === p1 && card2.innerHTML === p2 && card3.innerHTML === p3 && card4.innerHTML === p4) {
+        if (
+          card1.innerHTML === p1 &&
+          card2.innerHTML === p2 &&
+          card3.innerHTML === p3 &&
+          card4.innerHTML === p4
+        ) {
           setTimeout(() => {
-           h3.innerHTML = h3Value; 
-           for (let i = 0; i < btnNext.length; i++) {
-            const element = btnNext[i];
-            btnNext.forEach(element => {
-              element.removeAttribute('disabled', "");
-             element.style.background = "green";
-             element.innerHTML = "Next";
-            });
-           }
+            h3.innerHTML = h3Value;
+            for (let i = 0; i < btnNext.length; i++) {
+              const element = btnNext[i];
+              btnNext.forEach((element) => {
+                element.removeAttribute("disabled", "");
+                element.style.background = "green";
+                element.innerHTML = "Next";
+              });
+            }
           }, 2000);
+        }
       }
-      }
+     // video controls
+     
+      const video = document.getElementById("meuVideo");
+      let ultimaPosicaoPermitida = 0;
 
-      
+      video.addEventListener("timeupdate", () => {
+        if (video.currentTime > ultimaPosicaoPermitida + 0.1) {
+          video.currentTime = ultimaPosicaoPermitida;
+        } else {
+          ultimaPosicaoPermitida = video.currentTime;
+        }
+      });
+
+      video.addEventListener("seeking", () => {
+        if (video.currentTime > ultimaPosicaoPermitida) {
+          video.currentTime = ultimaPosicaoPermitida;
+        }
+      });
     </script>
   </body>
 </html>
